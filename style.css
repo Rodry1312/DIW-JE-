@@ -1,0 +1,330 @@
+/*
+================================================
+  RESET Y VARIABLES
+================================================
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables del usuario (incluidas para completitud) */
+:root {
+  /* paleta colores*/
+  --background-color-header: #0f76a0;
+  --color-cabeceralogo-h1: white;
+  --background-color-menuprincipal: #9fc8d9;
+  --color-menuprincipal-a: #333333;
+  --background-color-menuprincipal-li-hover: #6facc6;
+  --background-color-main: rgb(112, 112, 112);
+  --background-gradient-main: linear-gradient(
+    180deg,
+    rgba(112, 112, 112, 1) 0%,
+    rgba(233, 233, 233, 1) 100%
+  );
+  --color-infoadicional-h1: #333333;
+  --color-numerodia: white;
+  --color-nombredia: white;
+  --color-seccionpie-a: #666666;
+  --background-color-articulosprincipales: white;
+  --background-color-informacionadicional: #e7f1f5;
+  --background-color-article-time: #094660;
+  --background-color-pielogo: #0f76a0;
+  --background-color-pielogo-div: #9fc8d9;
+
+  /* tipografías */
+  --font-family: Arial, sans-serif;
+  --font-size-cabeceralogo-h1: 3.5rem;
+  --font-size-menuprincipal-a: 1.2rem;
+  --font-family-cabeceralogo-h1: Arial, sans-serif;
+  --font-weight-cabeceralogo-h1: bold;
+  --font-weight-menuprincipal-a: bold;
+  --text-decoration-a: none;
+  --font-size-infoadicional-h1: 1.2rem;
+  --font-size-numerodia: 2.2rem;
+  --font-size-nombredia: 0.9rem;
+  --font-weight-numerodia: bold;
+  --font-family-article-time: Verdana, sans-serif;
+  --font-family-article-h1: Georgia, sans-serif;
+  --font-family-article-p: Georgia, sans-serif;
+  --font-size-article-h1: 1.9rem;
+  --font-size-article-p: 1.1rem;
+  --font-weight-article-h1: bold;
+  --font-size-seccionpie-h1: 1.25rem;
+  --font-weight-seccionpie-h1: bold;
+  --font-size-seccionpie-a: 1rem;
+  --font-weight-seccionpie-a: bold;
+
+  /* bordes */
+  --border-top-menuprincipal: 1px solid #094660;
+  --border-bottom-menuprincipal: 1px solid #094660;
+  --border-radius-cajas: 10px;
+  --border-radius-article-time: 5px;
+  --border-figure-img: 1px solid #ccc; /* Añadido color para visibilidad */
+  --border-radius-pielogo-div: 10px;
+
+  /* box shadows*/
+  --box-shadow-article-time: 3px 3px 5px rgba(100, 100, 100, 0.7);
+  --box-shadow-menuprincipal: 3px 3px 5px rgba(100, 100, 100, 0.7);
+  --box-shadow-infoadicional: 3px 3px 5px rgba(100, 100, 100, 0.7); /* Añadido */
+
+  /*utilidades*/
+  --margin-0-centrado: 0 auto;
+
+  /* tamaños */
+  --max-width-container: 90%;
+
+  --width-articulosprincipales: 69%;
+  --width-infoadicional: 29%;
+  --width-articulosprincipales-img: 70%;
+  --width-article-time: 80px;
+  --width-seccionpie: 33.33%;
+
+  --height-header: 150px;
+  --height-menuprincipal: 50px;
+  --height-menuprincipal-li: 48px;
+
+  --padding-cabeceralogo: 0% 2%;
+  --padding-menuprincipal: 0% 2%;
+  --padding-pielogo: 2%;
+  --padding-top-cabecera-div: 45px;
+  --padding-top-main: 30px;
+  --padding-top-articulosprincipales: 30px;
+  --padding-menuprincipal-li: 15px 10px 0px 10px;
+  --padding-infoadicional: 20px;
+  --padding-article: 0px 40px 20px 40px;
+  --padding-article-time: 15px 5px;
+  --padding-figure-img: 5px;
+  --padding-seccionpie: 3%;
+
+  --margin-right-menuprincipal-li: 5px;
+  --margin-left-infoadicional: 2%;
+  --margin-bottom-infoadicional-h1: 15px;
+  --margin-bottom-article-h1: 5px;
+  --margin-figure: 10px 0px;
+  --margin-top-seccionpie-p: 5px;
+
+  /* positions */
+  --top-article-time: -5px;
+  --left-article-time: -60px;
+}
+
+/*
+================================================
+  GENERAL
+================================================
+*/
+body {
+  font-family: var(--font-family);
+  background: var(--background-gradient-main);
+}
+
+a {
+  text-decoration: var(--text-decoration-a);
+  color: var(--color-menuprincipal-a);
+}
+
+/*
+================================================
+  HEADER Y NAV
+================================================
+*/
+
+#cabeceralogo {
+  background-color: var(--background-color-header);
+  height: var(--height-header);
+  padding: var(--padding-cabeceralogo);
+  /* Asegura que el h1 esté alineado abajo */
+  display: flex;
+  align-items: flex-end;
+}
+
+#cabeceralogo h1 {
+  color: var(--color-cabeceralogo-h1);
+  font-size: var(--font-size-cabeceralogo-h1);
+  font-weight: var(--font-weight-cabeceralogo-h1);
+  font-family: var(--font-family-cabeceralogo-h1);
+  padding-bottom: 10px; /* Pequeño ajuste visual */
+}
+
+#menuprincipal {
+  background-color: var(--background-color-menuprincipal);
+  border-top: var(--border-top-menuprincipal);
+  border-bottom: var(--border-bottom-menuprincipal);
+  box-shadow: var(--box-shadow-menuprincipal);
+
+  /* Requisito: Menú Fijo (Fixed/Sticky) */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Asegura que esté sobre el contenido */
+  height: var(--height-menuprincipal);
+}
+
+/* Contenedor Flexbox para la lista de navegación */
+#menuprincipal ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Centra los items verticalmente */
+  padding: 0 var(--padding-menuprincipal);
+}
+
+#menuprincipal li {
+  margin-right: var(--margin-right-menuprincipal-li);
+  height: var(--height-menuprincipal-li);
+}
+
+#menuprincipal a {
+  display: block;
+  padding: 0 10px;
+  line-height: var(--height-menuprincipal-li); /* Centra el texto en el li */
+  font-weight: var(--font-weight-menuprincipal-a);
+  font-size: var(--font-size-menuprincipal-a);
+}
+
+#menuprincipal li:hover {
+  background-color: var(--background-color-menuprincipal-li-hover);
+}
+
+/*
+================================================
+  MAIN (Artículos y Aside)
+================================================
+*/
+
+main > div {
+  max-width: var(--max-width-container);
+  margin: var(--margin-0-centrado);
+  padding-top: var(--padding-top-main);
+  
+  /* Contenedor Flexbox principal para dos columnas */
+  display: flex;
+  justify-content: space-between; /* Espacio entre artículos y aside */
+}
+
+#articulosprincipales {
+  width: var(--width-articulosprincipales);
+  background-color: var(--background-color-articulosprincipales);
+  border-radius: var(--border-radius-cajas);
+  padding-top: var(--padding-top-articulosprincipales);
+}
+
+#infoadicional {
+  width: var(--width-infoadicional);
+  margin-left: var(--margin-left-infoadicional);
+  background-color: var(--background-color-informacionadicional);
+  border-radius: var(--border-radius-cajas);
+  padding: var(--padding-infoadicional);
+  box-shadow: var(--box-shadow-infoadicional);
+  align-self: flex-start; /* Evita que se estire a la altura de los artículos */
+}
+
+#infoadicional h1 {
+  color: var(--color-infoadicional-h1);
+  font-size: var(--font-size-infoadicional-h1);
+  margin-bottom: var(--margin-bottom-infoadicional-h1);
+}
+
+/* Estilos de los Artículos */
+article {
+  padding: var(--padding-article);
+  position: relative; /* Necesario para posicionar <time> */
+  margin-bottom: 40px;
+}
+
+article h1 {
+  font-size: var(--font-size-article-h1);
+  font-weight: var(--font-weight-article-h1);
+  font-family: var(--font-family-article-h1);
+  margin-bottom: var(--margin-bottom-article-h1);
+}
+
+article p {
+  font-size: var(--font-size-article-p);
+  font-family: var(--font-family-article-p);
+}
+
+/* Posicionamiento del Time/Fecha */
+time {
+  position: absolute;
+  top: 40px;
+  left: -20px; /* Ajuste para que se vea como en la imagen */
+  width: var(--width-article-time);
+  background-color: var(--background-color-article-time);
+  border-radius: var(--border-radius-article-time);
+  box-shadow: var(--box-shadow-article-time);
+  text-align: center;
+  padding: var(--padding-article-time);
+  font-family: var(--font-family-article-time);
+}
+
+.numerodia {
+  font-size: var(--font-size-numerodia);
+  font-weight: var(--font-weight-numerodia);
+  color: var(--color-numerodia);
+  line-height: 1;
+}
+
+.nombredia {
+  font-size: var(--font-size-nombredia);
+  color: var(--color-nombredia);
+}
+
+/* Estilos de la Imagen */
+figure {
+  margin: var(--margin-figure);
+  border: var(--border-figure-img);
+  padding: var(--padding-figure-img);
+  display: inline-block; /* Para que el borde se ajuste al contenido */
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*
+================================================
+  FOOTER
+================================================
+*/
+
+#pielogo {
+  background-color: var(--background-color-pielogo);
+  padding: var(--padding-pielogo);
+  margin-top: 50px;
+}
+
+#pielogo > div {
+  max-width: var(--max-width-container);
+  margin: var(--margin-0-centrado);
+  background-color: var(--background-color-pielogo-div);
+  border-radius: var(--border-radius-pielogo-div);
+  padding: var(--padding-seccionpie);
+
+  /* Contenedor Flexbox para las 3 columnas del footer */
+  display: flex;
+  justify-content: space-between;
+}
+
+.seccionpie {
+  width: var(--width-seccionpie);
+}
+
+.seccionpie h1 {
+  font-size: var(--font-size-seccionpie-h1);
+  font-weight: var(--font-weight-seccionpie-h1);
+  margin-bottom: 10px;
+}
+
+.seccionpie p {
+  margin-top: var(--margin-top-seccionpie-p);
+}
+
+.seccionpie a {
+  color: var(--color-seccionpie-a);
+  font-size: var(--font-size-seccionpie-a);
+  font-weight: var(--font-weight-seccionpie-a);
+}
