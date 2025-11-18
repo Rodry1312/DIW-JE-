@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "./desktopLayout.css";
+@import "./fonts.css";
+
+@theme {
+	--font-sans: "DMSans", sans-serif;
+}

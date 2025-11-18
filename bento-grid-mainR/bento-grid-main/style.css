@@ -1,0 +1,150 @@
+:root {
+
+  --purple-500: hsl(256, 67%, 59%);
+  --purple-100: hsl(254, 88%, 90%);
+  --yellow-500: hsl(39, 100%, 71%);
+  --yellow-100: hsl(31, 66%, 93%);
+  --white: #ffffff;
+  --black: #000000;
+
+  --font-base: 'DM Sans', sans-serif;
+  --font-lg: 2.6rem;
+  --font-md: 1.8rem;
+  --font-sm: 1.4rem;
+
+
+  --radius: 10px;
+  --gap: 30px;
+  --padding-card: 24px;
+
+
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: 18px;
+  background-color: #f5f5f5;
+  color: var(--black);
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.grid-container {
+  display: grid;
+  gap: var(--gap);
+  max-width: 1120px;
+  margin: 50px auto;
+  grid-template-columns: 1fr;
+}
+
+.card,
+.subcard {
+  border-radius: var(--radius);
+  padding: var(--padding-card);
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  font-size: var(--font-lg);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--font-md);
+}
+
+h3 {
+  font-size: var(--font-sm);
+}
+
+.highlight {
+  color: var(--yellow-500);
+}
+
+@media (min-width: 1000px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 320px 250px 250px;
+    grid-template-areas:
+      "ga1 ga2 ga2 ga3"
+      "ga1 ga4 ga5 ga3"
+      "ga1 ga6 ga7 ga7";
+  }
+
+  .card-main {
+    background-color: var(--purple-500);
+    color: var(--white);
+    grid-area: ga2;
+    text-align: center;
+  }
+
+  .card-platform {
+    grid-area: ga4;
+  }
+
+  .card-schedule {
+    background-color: var(--yellow-500);
+    grid-area: ga5;
+  }
+
+  .card-posts {
+    background-color: var(--purple-100);
+    grid-area: ga3;
+  }
+
+  .card-growth {
+    grid-area: ga7;
+    background-color: var(--purple-500);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    gap: var(--gap);
+    padding: 40px;
+  }
+
+  .card-growth img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .card-growth h2 {
+    font-size: var(--font-md);
+    line-height: 1.2;
+    max-width: 400px;
+  }
+
+  .card-stats {
+    grid-area: ga6;
+  }
+
+  .card-content {
+    grid-area: ga1;
+    display: grid;
+    grid-template-rows: 415px 435px;
+    gap: var(--gap);
+  }
+
+  .subcard:nth-child(1) {
+    background-color: var(--yellow-100);
+  }
+
+  .subcard:nth-child(2) {
+    background-color: var(--yellow-500);
+    color: var(--white);
+  }
+}
