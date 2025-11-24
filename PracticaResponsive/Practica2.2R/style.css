@@ -1,0 +1,146 @@
+:root {
+    /* Variables de Estilo */
+    --color-fondo: gainsboro;
+    --color-texto: #333;
+    --color-item-bg: white;
+    --font-sans: Sans-serif;
+    --font-titulo: 'TituloEspecial', cursive;
+    --grid-gap: 10px;
+    --padding-item: 10px;
+    --max-width-desktop: 1400px;
+}
+
+/* --- Definición de Fuente --- */
+@font-face {
+    font-family: 'TituloEspecial';
+    src: url('fonts/fontTitulo3.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- Estilos Base --- */
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: var(--color-fondo); 
+    font-family: var(--font-sans); 
+    color: var(--color-texto);
+}
+
+.grid-container {
+    display: grid;
+    gap: var(--grid-gap);
+    width: 100%;
+    max-width: var(--max-width-desktop);
+    margin: 0 auto;
+    /* Por defecto (móvil/pequeño) es 1 columna, aunque se define en la media query de 768px */
+}
+
+.grid-item {
+    background-color: var(--color-item-bg);
+    padding: var(--padding-item);
+    overflow: hidden;
+}
+
+.buenas {
+    background-color: transparent;
+}
+
+/* --- Estilos de Bloques de Contenido --- */
+.img-block {
+    padding: 0; 
+    cursor: pointer; 
+}
+
+.img-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0); 
+    transition: filter 0.3s ease-in-out;
+}
+
+.img-block:hover img {
+    filter: grayscale(100%);
+}
+
+.title-block {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-text {
+    font-family: var(--font-titulo);
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Media Query: Diseño para Tablets (max-width: 768px) --- */
+@media (max-width:768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Estilo para block-10 en tablets: ocupa 2 columnas completas */
+    #block-10 { grid-area: 5 / 1 / 7 / 3; }
+}
+
+/* --- Media Query: Diseño para Escritorio Pequeño (min-width: 768px) --- */
+@media (min-width:768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(200px, auto); 
+    }
+
+    /* Asignación de Áreas (3 columnas) */
+    #block-1 { grid-area: 1 / 1 / 3 / 2; } /* 2x1 */
+    #block-4 { grid-area: 3 / 1 / 5 / 2; } /* 2x1 */
+    #block-9 { grid-area: 3 / 3 / 5 / 3; } /* 2x1 */
+
+    /* Items de 1x1 */
+    #block-2 { grid-area: 1 / 2 / 2 / 3; }
+    #block-5 { grid-area: 2 / 2 / 3 / 3; }
+    #block-7 { grid-area: 3 / 2 / 4 / 3; }
+    #block-8 { grid-area: 4 / 2 / 5 / 3; }
+    #block-3 { grid-area: 1 / 3 / 2 / 4; }
+    #block-6 { grid-area: 2 / 3 / 3 / 4; }
+
+    /* Items con ancho de 2 columnas */
+    #block-10 { grid-area: 5 / 1 / 5 / 3; } /* 1x2 */
+    #block-11 { grid-area: 6 / 1 / 6 / 3; } /* 1x2 */
+
+    /* Items inferiores */
+    #block-12 { grid-area: 5 / 3 / 6 / 4; }
+    #block-13 { grid-area: 6 / 3 / 6 / 3; }
+}
+
+/* --- Media Query: Diseño para Escritorio Grande (min-width: 1024px) --- */
+@media (min-width:1024px) {
+    .grid-container {
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: minmax(300px, auto); 
+    }
+
+    /* Fila 1 (5 items) */
+    #block-1 { grid-area: 1 / 1 / 3 / 2; } /* 2x1 */
+    #block-2 { grid-area: 1 / 2 / 2 / 3; }
+    #block-3 { grid-area: 1 / 3 / 2 / 4; }
+    #block-4 { grid-area: 1 / 4 / 3 / 5; } /* 2x1 */
+    #block-5 { grid-area: 1 / 5 / 2 / 6; }
+
+    /* Fila 2 (3 items) */
+    #block-6 { grid-area: 2 / 2 / 3 / 3; }
+    #block-7 { grid-area: 2 / 3 / 3 / 4; }
+    #block-8 { grid-area: 2 / 5 / 3 / 6; }
+
+    /* Fila 3 y 4 (Inferior) */
+    #block-9 { grid-area: 3 / 1 / 5 / 3; } /* 2x2 */
+    #block-10 { grid-area: 3 / 3 / 4 / 5; } /* 1x2 */
+    #block-12 { grid-area: 3 / 5 / 4 / 6; }
+    
+    #block-11 { grid-area: 4 / 3 / 5 / 5; } /* 1x2 */
+    #block-13 { grid-area: 4 / 5 / 5 / 6; }
+}
